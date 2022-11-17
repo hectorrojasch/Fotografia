@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  deit: 2022-11-14
+  comment: MyText
+  tag: one
+
+two:
+  name: MyString
+  deit: 2022-11-14
+  comment: MyText
+  tag: two

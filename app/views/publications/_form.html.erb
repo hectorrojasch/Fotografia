@@ -1,0 +1,48 @@
+<%= form_with(model: publication) do |form| %>
+  <% if publication.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(publication.errors.count, "error") %> prohibited this publication from being saved:</h2>
+
+      <ul>
+        <% publication.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :deit, style: "display: block" %>
+    <%= form.date_field :deit %>
+  </div>
+
+  <div>
+    <%= form.label :comment, style: "display: block" %>
+    <%= form.text_area :comment %>
+  </div>
+
+    <div>
+    <%= form.label :tag_id, style: "display: block" %>
+    <%= form.collection_select :tag_id,
+        Tag.all,
+        :id,
+        :name,
+        required: true,
+        include_blank: true %>
+  </div>
+  
+
+  <!--div>
+    <%= form.label :tag_id, style: "display: block" %>
+    <%= form.text_field :tag_id %>
+  </div-->
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
